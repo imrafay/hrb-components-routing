@@ -1,7 +1,13 @@
+import Button from "./components/Button";
+
 function App() {
   return (
-    <div>
-      <h1>Hello</h1>
+    <div className="inline-grid">
+      <Button primary rounded outline>Click Primary</Button>
+      <Button secondary outline>Click Secondary</Button>
+      <Button success outline>Click Success</Button>
+      <Button warning rounded>Click Warning</Button>
+      <Button danger outline rounded>Click Danger</Button>
     </div>
   );
 }
