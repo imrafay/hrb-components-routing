@@ -1,7 +1,22 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function Dropdown({options,onChange,value}) {
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownElement = useRef();
+
+  useEffect(()=>{
+    const handleClickDocument = (event)=>{
+      if(!dropdownElement.current.contains(event.target)){
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('click',handleClickDocument,true);
+
+    return () => {
+      document.removeEventListener('click',handleClickDocument);
+    };
+  });
 
   const handleClick = () => {
     setIsOpen(!isOpen);
@@ -13,17 +28,17 @@ function Dropdown({options,onChange,value}) {
   };
 
   const optionList = options.map((item,index) => {
-    return <div className="rounded-b-lg">
-      <div className="hover:bg-blue-400 border border-blue-400 bg-blue-200 cursor-pointer px-2 py-4" onClick={() => handlOptionClick(item)} key={item.key}>{item.value}</div>
+    return <div>
+      <div className="hover:bg-blue-100 cursor-pointer px-4 py-3 text-blue-400" onClick={() => handlOptionClick(item)} key={item.key}>{item.value}</div>
     </div>
   });
   
   return (
-   <div className="w-60 m-2">
-    <div className="rounded-lg border border-blue-400 bg-blue-200 cursor-pointer px-2 py-4" onClick={handleClick}>
+   <div ref={dropdownElement} className="w-60 m-2">
+    <div className="rounded-lg border border-blue-400 bg-blue-50 cursor-pointer px-4 py-3" onClick={handleClick}>
     {value?.value || 'Select...'}
     </div>
-    {isOpen && optionList}
+    {isOpen && <div className="rounded-lg border border-blue-400 bg-blue-50">{optionList}</div>}
    </div>
   );
 }
