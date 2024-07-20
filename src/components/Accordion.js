@@ -14,7 +14,7 @@ const [expendIndex,setExpendIndex] = useState(-1);
   };
 
   const result = values.map((item,index)=>{
-    const isExpended = index === expendIndex;
+    const isExpended = index === expendIndex; 
       return (
         <div key={index}>
           <div className="flex bg-gray-400 borde border-gray-800 p-2 cursor-pointer" onClick={()=>handleClick(index)}>{item.label}</div>
