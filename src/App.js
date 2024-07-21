@@ -6,7 +6,7 @@ import AccordionPage from "./pages/AccordionPage"
 
 function App() {
   return (
-    <div>
+    <div className="container mx-auto grid grid-cols-6 gap-4 mt-4">
     <Sidebar />
     <div>
         <Route to="/button">

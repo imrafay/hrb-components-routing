@@ -6,7 +6,7 @@ function Dropdown({options,onChange,value}) {
 
   useEffect(()=>{
     const handleClickDocument = (event)=>{
-      if(!dropdownElement.current.contains(event.target)){
+      if(!dropdownElement.current?.contains(event.target)){
         setIsOpen(false);
       }
     };
@@ -28,8 +28,8 @@ function Dropdown({options,onChange,value}) {
   };
 
   const optionList = options.map((item,index) => {
-    return <div>
-      <div className="hover:bg-blue-100 cursor-pointer px-4 py-3 text-blue-400" onClick={() => handlOptionClick(item)} key={item.key}>{item.value}</div>
+    return <div key={item.key}>
+      <div className="hover:bg-blue-100 cursor-pointer px-4 py-3 text-blue-400" onClick={() => handlOptionClick(item)}>{item.value}</div>
     </div>
   });
   

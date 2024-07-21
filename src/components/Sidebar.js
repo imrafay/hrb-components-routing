@@ -17,11 +17,11 @@ function Sidebar(){
     ]
 
     const sidebarArray = list.map((link)=>{
-        return <Link key={link.path} to={link.path}>{link.label}</Link>
+        return <Link className="text-blue-600 my-3" key={link.path} to={link.path}>{link.label}</Link>
     });
 
     return(
-        <div>
+        <div className="sticky top-0 overflow-y-scroll flex flex-col">
             {sidebarArray}
         </div>
     );

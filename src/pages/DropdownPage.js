@@ -25,7 +25,6 @@ function DropdownPage() {
   return (
     <div className="flex justify-center">
         <Dropdown options={countries} onChange={handleChange} value={selection}/>
-        <Dropdown options={countries} onChange={handleChange} value={selection}/>
     </div>
   );
 }
