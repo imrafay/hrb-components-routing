@@ -14,6 +14,10 @@ function Sidebar(){
             label:"Buttons",
             path: "/button"
         },
+        {
+            label:"Modal",
+            path: "/modal"
+        },
     ]
 
     const sidebarArray = list.map((link)=>{
