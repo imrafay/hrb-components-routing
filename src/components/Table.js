@@ -1,5 +1,13 @@
+import { Fragment } from "react";
+
 function Table({data,config}){
  const headerColumns = config.map((item)=>{
+    if(item.header){
+      return  <Fragment key={item.label}>
+            {item.header}
+        </Fragment>
+    }
+
     return <th key={item.label}>
         {item.label}
     </th>

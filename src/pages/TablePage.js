@@ -1,4 +1,6 @@
 import Table from "../components/Table";
+import SortedTable from "../components/SortedTable";
+
 function TablePage(){
 
     const data =[
@@ -27,7 +29,8 @@ function TablePage(){
    const config = [
         {
             label:"Country",
-            render: (item) => item.name
+            render: (item) => item.name,
+            sortValue: (item)=> item.name
         },
         {
             label:"Code",
@@ -39,7 +42,7 @@ function TablePage(){
         },
     ];
 
-    return (<Table data={data} config={config} />);
+    return (<SortedTable data={data} config={config} />);
     }
     export default TablePage;
     
