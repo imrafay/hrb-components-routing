@@ -22,6 +22,10 @@ function Sidebar(){
             label:"Table",
             path: "/table"
         },
+        {
+            label:"CounterPage",
+            path: "/counter"
+        },
     ]
 
     const sidebarArray = list.map((link)=>{
